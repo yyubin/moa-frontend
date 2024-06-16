@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { Button } from 'antd';
+import { CommentOutlined } from '@ant-design/icons';
 
 const Header = ({ onChatButtonClick }) => {
    // 예를 들어, 헤더에서 상태를 관리하고 클릭 이벤트를 처리할 수 있습니다.
@@ -9,6 +10,7 @@ const Header = ({ onChatButtonClick }) => {
       onChatButtonClick(); // 부모 컴포넌트로 이벤트를 전달합니다.
     }
   };
+
 
 
   return (
@@ -31,10 +33,10 @@ const Header = ({ onChatButtonClick }) => {
               <img src="/img/alarm.png" className='object-fit w-8 h-8'/>
             </button>
           </div>
+          <CommentOutlined />
           <div className='p-4'>
-            <button type='button' onClick={handleChatButtonClick} >
+            <Button type='primary' shape='circle' icon={<CommentOutlined />} />
               <img src="/img/chat.png"  className='object-fit w-8 h-8' />
-            </button>
           </div>
         </nav>
       </div>
