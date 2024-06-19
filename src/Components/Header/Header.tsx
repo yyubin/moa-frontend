@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Button } from 'antd';
-import { CommentOutlined } from '@ant-design/icons';
+import { Button, Badge } from 'antd';
+import { CommentOutlined, BellOutlined } from '@ant-design/icons';
 
 const Header = ({ onChatButtonClick }) => {
    // 예를 들어, 헤더에서 상태를 관리하고 클릭 이벤트를 처리할 수 있습니다.
@@ -29,14 +29,12 @@ const Header = ({ onChatButtonClick }) => {
             <a href="/about">내 아이디</a>
           </div>
           <div className='p-4'>
-            <button type='button'>
-              <img src="/img/alarm.png" className='object-fit w-8 h-8'/>
-            </button>
+            <CommentOutlined style={{ fontSize: '35px', color: 'white' }}/>
           </div>
-          <CommentOutlined />
-          <div className='p-4'>
-            <Button type='primary' shape='circle' icon={<CommentOutlined />} />
-              <img src="/img/chat.png"  className='object-fit w-8 h-8' />
+          <div className='p-4' >
+            <Badge dot style={{borderColor:'red', width:12, height:12}} offset={[-9,9]}>
+              <BellOutlined style={{ fontSize: '35px', color: 'white' }} />
+            </Badge>
           </div>
         </nav>
       </div>
