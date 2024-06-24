@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Badge } from 'antd';
+import { Button, Badge, Modal } from 'antd';
 import { CommentOutlined, BellOutlined } from '@ant-design/icons';
+import Login from '../Login/Login'
 
 const Header = ({ onChatButtonClick }) => {
    // 예를 들어, 헤더에서 상태를 관리하고 클릭 이벤트를 처리할 수 있습니다.
@@ -9,6 +10,22 @@ const Header = ({ onChatButtonClick }) => {
     if (onChatButtonClick) {
       onChatButtonClick(); // 부모 컴포넌트로 이벤트를 전달합니다.
     }
+  };
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleLogin = (values) => {
+    console.log('Logging in with:', values);
+    // 로그인 처리 로직 추가
+    setIsModalVisible(false); // 모달 닫기
   };
 
 
@@ -27,16 +44,23 @@ const Header = ({ onChatButtonClick }) => {
           </div>
           <div className='flex-[1] p-4 text-white text-right font-bold'>
             <a href="/about">내 아이디</a>
+            <a onClick={showModal}> / 로그인</a>
           </div>
           <div className='p-4'>
-            <CommentOutlined style={{ fontSize: '35px', color: 'white' }}/>
+            <CommentOutlined style={{ fontSize: '35px', color: 'white' }} onClick={handleChatButtonClick}/>
           </div>
           <div className='p-4' >
-            <Badge dot style={{borderColor:'red', width:12, height:12}} offset={[-9,9]}>
+            <Badge dot style={{borderColor:'#444A6B', borderWidth: 2,width:16, height:16}} offset={[-9,9]}>
               <BellOutlined style={{ fontSize: '35px', color: 'white' }} />
+
             </Badge>
           </div>
         </nav>
+        <Login
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        onLogin={handleLogin}
+      />
       </div>
     </header>
   )

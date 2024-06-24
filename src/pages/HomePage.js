@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import Header from "../Components/Header/Header.tsx"
-import Chat from "../Components/Chat/Chat.tsx"
-import '../App.css'; // CSS 파일을 임포트
-
+import Header from "../Components/Header/Header.js";
+import Chat from "../Components/Chat/Chat.js";
 
 function HomePage() {
   const [isChatOpen, setIsChatOpen] = useState(false);
